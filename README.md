@@ -1,2 +1,2 @@
 # HTMLSmartComponents
-Develop frontend components without using any frontend framework
+Develop smart frontend components without using any frontend framework.
