@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Miguel Candeira Carrera">
+    <title>HTMLSmartComponents</title>
+</head>
+<body>
+    <header id="smartID-AAA">
+        <h1>HTMLSmartComponents</h1>
+        <style>
+            #smartID-AAA {
+                display: flex;
+                padding-left: 40px;
+                background-color: darkorchid;
+                color: white;
+            }
+
+            #smartID-AAA > h1:hover {
+                color: aquamarine;
+            }
+        </style>
+    </header>
+    <main>
+        <h2>A new way to program components in HTML</h2>
+        <div>
+            <div id="smartID-AAB">
+                <h3>Simple Component (smartID-AAB)</h3>
+                <button>Test</button>
+                <template>
+                    <p>It works!</p>
+                </template>
+                <style>
+                    #smartID-AAB {
+                        display: flex;
+                        flex-direction: column;
+                        background-color: dodgerblue;
+                        border-radius: 10px;
+                        padding: 20px;
+                        height: fit-content;
+                    }
+
+                    #smartID-AAB > h3 {
+                        color: white;
+                    }
+
+                    #smartID-AAB > button {
+                        border-radius: 10px;
+                    }
+
+                    #smartID-AAB > button:hover {
+                        background-color: lightgrey;
+                    }
+
+                    #smartID-AAB > p {
+                        background-color: white;
+                        text-align: center;
+                        border-radius: 10px;
+                        padding: 2px;
+                    }
+
+                    #smartID-AAB > p:hover {
+                        background-color: lightgrey;
+                    }
+                </style>
+                <script>
+                    ( () => {
+                        const id = '#smartID-AAB'
+
+                        const component = document.querySelector(id)
+                        const button = document.querySelector(`${id} > button`)
+                        const template = document.querySelector(`${id} > template`)
+
+                        button.addEventListener('click', () => {
+                            const copy = template.content.cloneNode(true)
+                            component.insertBefore(copy, template)
+                        }
+                        )
+                    }
+                    )()
+                </script>
+            </div>
+            <div id="smartID-AAC">
+                <h3>Complex Component (smartID-AAC)</h3>
+                <button>Test</button>
+                <div id="smartID-AAC-AA">
+                    <h3>Simple Component (smartID-AAC-AA)</h3>
+                    <button>Test</button>
+                    <template>
+                        <p>It works!</p>
+                    </template>
+                    <style>
+                        #smartID-AAC-AA {
+                            display: flex;
+                            flex-direction: column;
+                            background-color: dodgerblue;
+                            border-radius: 10px;
+                            padding: 20px;
+                            height: fit-content;
+                        }
+
+                        #smartID-AAC-AA > h3 {
+                            color: white;
+                        }
+
+                        #smartID-AAC-AA > button {
+                            border-radius: 10px;
+                        }
+
+                        #smartID-AAC-AA > button:hover {
+                            background-color: lightgrey;
+                        }
+
+                        #smartID-AAC-AA > p {
+                            background-color: white;
+                            text-align: center;
+                            border-radius: 10px;
+                            padding: 2px;
+                        }
+
+                        #smartID-AAC-AA > p:hover {
+                            background-color: lightgrey;
+                        }
+                    </style>
+                    <script>
+                        ( () => {
+                            const id = '#smartID-AAC-AA'
+
+                            const component = document.querySelector(id)
+                            const button = document.querySelector(`${id} > button`)
+                            const template = document.querySelector(`${id} > template`)
+
+                            button.addEventListener('click', () => {
+                                const copy = template.content.cloneNode(true)
+                                component.insertBefore(copy, template)
+                            }
+                            )
+                        }
+                        )()
+                    </script>
+                </div>
+                <div id="smartID-AAC-AB">
+                    <h3>Simple Component (smartID-AAC-AB)</h3>
+                    <button>Test</button>
+                    <template>
+                        <p>It works!</p>
+                    </template>
+                    <style>
+                        #smartID-AAC-AB {
+                            display: flex;
+                            flex-direction: column;
+                            background-color: salmon;
+                            border-radius: 10px;
+                            padding: 20px;
+                            height: fit-content;
+                        }
+
+                        #smartID-AAC-AB > h3 {
+                            color: white;
+                        }
+
+                        #smartID-AAC-AB > button {
+                            border-radius: 10px;
+                        }
+
+                        #smartID-AAC-AB > button:hover {
+                            background-color: lightgrey;
+                        }
+
+                        #smartID-AAC-AB > p {
+                            background-color: white;
+                            text-align: center;
+                            border-radius: 10px;
+                            padding: 2px;
+                        }
+
+                        #smartID-AAC-AB > p:hover {
+                            background-color: lightgrey;
+                        }
+                    </style>
+                    <script>
+                        ( () => {
+                            const id = '#smartID-AAC-AB'
+
+                            const component = document.querySelector(id)
+                            const button = document.querySelector(`${id} > button`)
+                            const template = document.querySelector(`${id} > template`)
+
+                            button.addEventListener('click', () => {
+                                const copy = template.content.cloneNode(true)
+                                component.insertBefore(copy, template)
+                            }
+                            )
+                        }
+                        )()
+                    </script>
+                </div>
+                <template>
+                    <p>It works!</p>
+                </template>
+                <style>
+                    #smartID-AAC {
+                        display: flex;
+                        flex-direction: column;
+                        background-color: mediumseagreen;
+                        border-radius: 10px;
+                        padding: 20px;
+                    }
+
+                    #smartID-AAC > h3 {
+                        color: white;
+                    }
+
+                    #smartID-AAC > button {
+                        border-radius: 10px;
+                    }
+
+                    #smartID-AAC > button:hover {
+                        background-color: lightgrey;
+                    }
+
+                    #smartID-AAC > p {
+                        background-color: white;
+                        text-align: center;
+                        border-radius: 10px;
+                        padding: 2px;
+                    }
+
+                    #smartID-AAC > p:hover {
+                        background-color: lightgrey;
+                    }
+
+                    #smartID-AAC > div {
+                        margin: 20px 0px;
+                    }
+                </style>
+                <script>
+                    ( () => {
+                        const id = '#smartID-AAC'
+
+                        const component = document.querySelector(id)
+                        const button = document.querySelector(`${id} > button`)
+                        const template = document.querySelector(`${id} > template`)
+
+                        button.addEventListener('click', () => {
+                            const copy = template.content.cloneNode(true)
+                            component.insertBefore(copy, template)
+                        }
+                        )
+                    }
+                    )()
+                </script>
+            </div>
+            <div id="smartID-AAD">
+                <h3>Simple Component (smartID-AAD)</h3>
+                <button>Test</button>
+                <template>
+                    <p>It works!</p>
+                </template>
+                <style>
+                    #smartID-AAD {
+                        display: flex;
+                        flex-direction: column;
+                        background-color: salmon;
+                        border-radius: 10px;
+                        padding: 20px;
+                        height: fit-content;
+                    }
+
+                    #smartID-AAD > h3 {
+                        color: white;
+                    }
+
+                    #smartID-AAD > button {
+                        border-radius: 10px;
+                    }
+
+                    #smartID-AAD > button:hover {
+                        background-color: lightgrey;
+                    }
+
+                    #smartID-AAD > p {
+                        background-color: white;
+                        text-align: center;
+                        border-radius: 10px;
+                        padding: 2px;
+                    }
+
+                    #smartID-AAD > p:hover {
+                        background-color: lightgrey;
+                    }
+                </style>
+                <script>
+                    ( () => {
+                        const id = '#smartID-AAD'
+
+                        const component = document.querySelector(id)
+                        const button = document.querySelector(`${id} > button`)
+                        const template = document.querySelector(`${id} > template`)
+
+                        button.addEventListener('click', () => {
+                            const copy = template.content.cloneNode(true)
+                            component.insertBefore(copy, template)
+                        }
+                        )
+                    }
+                    )()
+                </script>
+            </div>
+        </div>
+    </main>
+    <style>
+        body > main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        body > main > h2 {
+            margin: 80px 0px 70px 0px;
+            color: darkslategray;
+            font-size: 24pt;
+        }
+
+        body > main > div {
+            width: 90%;
+            display: flex;
+            justify-content: space-around;
+        }
+    </style>
+</body>
+</html>
