@@ -1,0 +1,63 @@
+<div id="{{smart.ID}}">
+    <h3>Complex Component ({{smart.ID}})</h3>
+    <button>Test</button>
+    {% for color in components %}
+        {% set smart = start('simple_component', {color: color}) %}{#######}{{ include(smart.component, smart.vals) }}{% set smart = end() %}
+    {% endfor %}
+
+    <template>
+        <p>It works!</p>
+    </template>
+
+    <style>
+        #{{smart.ID}} {
+            display: flex;
+            flex-direction: column;
+            background-color: {{color}};
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        #{{smart.ID}} > h3 {
+            color: white;
+        }
+
+        #{{smart.ID}} > button{
+            border-radius: 10px;
+        }
+
+        #{{smart.ID}} > button:hover{
+            background-color: lightgrey;
+        }
+
+        #{{smart.ID}} > p{
+            background-color: white;
+            text-align: center;
+            border-radius: 10px;
+            padding: 2px;
+        }
+        
+        #{{smart.ID}} > p:hover{
+            background-color: lightgrey;
+        }
+
+        #{{smart.ID}} > div{
+            margin: 20px 0px;
+        }
+    </style>
+
+    <script>
+        (() => {
+            const id = '#{{smart.ID}}'
+
+            const component = document.querySelector(id)
+            const button    = document.querySelector(`${id} > button`)
+            const template  = document.querySelector(`${id} > template`)
+
+            button.addEventListener('click', () => {
+                const copy = template.content.cloneNode(true)
+                component.insertBefore(copy, template)
+            })
+        })()
+    </script>
+</div>

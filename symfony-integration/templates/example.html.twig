@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"   content="width=device-width, initial-scale=1.0">
+    <meta name="author"     content="Miguel Candeira Carrera">
+    
+    <title>HTMLSmartComponents</title>
+</head>
+<body>
+    {% set smart = start('header') %}{#######}{{ include(smart.component, smart.vals) }}{% set smart = end() %}
+    <main>
+        <h2>A new way to program components in HTML</h2>
+        <div>
+            {% set smart = start('simple_component', {color: 'dodgerblue'}) %}{#######}{{ include(smart.component, smart.vals) }}{% set smart = end() %}
+            {% set smart = start('complex_component', {color: 'mediumseagreen', components: ['dodgerblue', 'salmon']}) %}{#######}{{ include(smart.component, smart.vals) }}{% set smart = end() %}
+            {% set smart = start('simple_component', {color: 'salmon'}) %}{#######}{{ include(smart.component, smart.vals) }}{% set smart = end() %}
+        </div>
+    </main>
+
+    <style>
+        body > main{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        body > main > h2{
+            margin: 80px 0px 70px 0px;
+            color: darkslategray;
+            font-size: 24pt;
+        }
+
+        body > main > div{
+            width: 90%;
+            display: flex;
+            justify-content: space-around;
+        }
+    </style>
+</body>
+</html>
