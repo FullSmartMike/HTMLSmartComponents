@@ -1,14 +1,57 @@
 # HTMLSmartComponents
+
 Develop smart frontend components without using any frontend framework.
 
-## How To Use
+
+<h2 id="table">Table of Contents</h2>
+
++ [Advantages](#advantages)
++ [What It Is](#what-it-is)
++ [How It Works](#how-it-works)
++ [How To Use It](#how-to-use-it)
++ [Nested HTMLSmartComponents](#nested)
+
+
+<h2 id="advantages">Advantages</h2>
+
++ It works in any context where you can use HTML code.
++ You don't need to use a frontend framework.
++ Keeps your component logic in only one place.
++ Keeps your component logic encapsulated.
++ It's too easy to use and too fast to learn.
++ It's compatible with any web technology.
++ It can access the full power of web technologies.
+
+[Table of Contents](#table)
+
+
+<h2 id="what-it-is">What It Is</h2>
+
+HTMLSmartComponents are a new frontend web programming way that allows you to work with frontend components symply by using HTML, CSS and JavaScript.
+
+Unlike frontend frameworks, HTMLSmartComponents don't alter the way web technologies works. Instead, it uses these tecnologies directly and are therefore fully compatible with all their features. Thanks to that, frontend developers can regain the freedom and power that comes from using directly HTML, CSS and JavaScript.
+
+[Table of Contents](#table)
+
+
+<h2 id="how-it-works">How It Works</h2>
+
+An HTMLSmartComponent is primarily defined by a block-level HTML element that acts as a wrapper for the component. Inside this wrapper you can place the structure, style and behavior of your component without worrying about anything outside the wrapper, simply your HTMLSmartComponent always will be able to work just as you desgined.
+
+To learn how to use an HTMLSmartComponent continue reading.
+
+[Table of Contents](#table)
+
+
+<h2 id="how-to-use">How To Use</h2>
+
 To use an HTMLSmartComponent you need to:
 
 + ### Create a wrapper for the HTMLSmartComponent:
 
     First you have to use a block-level HTML element that serves as a wrapper for the HTMLSmartComponent. Also, this wrapper element needs to set its id attribute. For example, you can use a generic `<div>` element:
 
-    ```
+    ```html
     <div id="myID">
     </div>
     ```
@@ -17,7 +60,7 @@ To use an HTMLSmartComponent you need to:
 
     Now, you can conceptually divide the component in three sections: Structure, Style and Behavior.
 
-    ```
+    ```html
     <div id="myID">
 
         <!-- Structure -->
@@ -33,8 +76,7 @@ To use an HTMLSmartComponent you need to:
 
     The Structure section also can be conceptually divide in two possible sections: Main and Auxiliary.
 
-
-    ```
+    ```html
     <div id="myID">
 
         <!-- Structure -->
@@ -50,7 +92,7 @@ To use an HTMLSmartComponent you need to:
 
     In the Main section you can use any HTML element you want. For example, you can use an `<h1>` title element:
 
-    ```
+    ```html
     <div id="myID">
 
         <!-- Structure -->
@@ -68,7 +110,7 @@ To use an HTMLSmartComponent you need to:
 
     The Auxiliary section is intended to be made up of zero or more `<template>` elements. Inside each `<template>` you can place a piece of structure that you won't need initially but you will need to load later with JavaScript. For example, you can place a `<p>` element:
 
-    ```
+    ```html
     <div id="myID">
 
         <!-- Structure -->
@@ -93,7 +135,7 @@ To use an HTMLSmartComponent you need to:
 
     To define the Styles of the component you can use an `<style>` HTML element. The CSS rules you place inside this element must always start with the **id** value of the wrapper element to avoid style collisions with other components:
 
-    ```
+    ```html
     <div id="myID">
         <h1>HTMLSmartComponent</h1>
 
@@ -121,7 +163,7 @@ To use an HTMLSmartComponent you need to:
 
     Finally, to code the behavior of the HTMLSmartComponent you can use a `<script>` HTML element. Although the final JS code you use is up to you, you should always place it inside an arrow function that executes to herself inmediatly:
 
-    ```
+    ```html
     <div id="myID">
         <h1>HTMLSmartComponent</h1>
 
@@ -152,7 +194,7 @@ To use an HTMLSmartComponent you need to:
 
     For example, in the `<script>` element, you can take the code inside the `<template>` and inject it at the end of the main structure as follows:
 
-    ```
+    ```html
     <div id="myID">
         <h1>HTMLSmartComponent</h1>
 
@@ -182,10 +224,14 @@ To use an HTMLSmartComponent you need to:
 
     That's all, now you can use HTMLSmartComponents in any place that you can use HTML code without using any frontend framework and without colliding with any other code. All works perfectly!
 
-## Nested HTMLSmartComponents
+[Table of Contents](#table)
+
+
+<h2 id="nested">Nested HTMLSmartComponents</h2>
+
 To nest an HTMLSmartComponent inside another you only need to place it in the structure section of the parent:
 
-```
+```html
 <div id="myID1">
     <h1>HTMLSmartComponents</h1>
     <div id="myID2">
@@ -237,3 +283,5 @@ To nest an HTMLSmartComponent inside another you only need to place it in the st
     </script>
 </div>
 ```
+
+[Table of Contents](#table)
