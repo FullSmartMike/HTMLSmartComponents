@@ -1,0 +1,97 @@
+<script>
+    let smart = {
+
+        props: [],
+
+        setProps(component, props){
+            this.props[component.id] = props
+        },
+
+        getProps(component){
+
+            let parent = component.id.substring(0, component.id.lastIndexOf('-'))
+
+            if(!this.props[parent]){console.log(`The parent "${parent}" not defined props.`); return null}
+            return this.props[parent]
+        }
+    }
+</script>
+
+<!-- ==================================================================
+        The script above allows a parent component to set a series of
+        values (with setProps()) that a child component can access
+        (with getProps())
+     ================================================================== -->
+
+<div id="smartID-A">
+    <h1>Parent Component</h1>
+
+    <template>
+        <p>Parent Message</p>
+    </template>
+
+    <div id="smartID-A-A">
+        <h1>Child Component</h1>
+        <button>Show Parent Message</button>
+    
+        <style>
+            #smartID-A-A{
+                & {
+                    background-color: dodgerblue;
+                    color: white;
+                    border-radius: 10px;
+                    padding: 20px;
+                }
+
+                button{
+                    border-radius: 15px;
+                    padding: 5px 10px;
+                }
+
+                p{
+                    background-color: gray;
+                    width: fit-content;
+                    border-radius: 10px;
+                    padding: 10px;
+                    font-weight: bold;
+                }
+            }
+        </style>
+    
+        <script type="module">
+            (() => {
+    
+                const component = document.querySelector('#smartID-A-A')
+                const button = document.querySelector('#smartID-A-A > button')
+    
+                button.addEventListener('click', () => {
+                    component.append(smart.getProps(component))
+                })
+    
+            })()
+        </script>
+    </div>
+
+    <style>
+        #smartID-A{
+            & {
+                background-color: darkorchid;
+                color: white;
+                border-radius: 10px;
+                padding: 20px;
+            }
+        }
+    </style>
+
+    <script type="module">
+        (() => {
+
+            const component = document.querySelector('#smartID-A')
+            const template = document.querySelector('#smartID-A > template')
+            const copy = template.content.cloneNode(true)
+
+            smart.setProps(component, copy)
+
+        })()
+    </script>
+</div>
