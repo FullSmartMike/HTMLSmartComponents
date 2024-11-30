@@ -1,0 +1,102 @@
+<script>
+    let smart = {
+
+        emit(component, value){
+            component.dispatchEvent(new CustomEvent('descendant', {
+                detail:{
+                    msg: value
+                },
+                bubbles: true
+            }))
+        },
+
+        listenDescendant(component, callback){
+            component.addEventListener('descendant', (e) =>{
+                callback(e.detail.msg)
+            })
+        }
+
+    }
+</script>
+
+<!-- ==================================================================
+        The script above allows a child component to send a message
+        (with emit()) to its parent component (that can access to that
+        message with listenDecendant())
+     ================================================================== -->
+
+<div id="smartID-A">
+    <h1>Parent Component</h1>
+
+    <div id="smartID-A-A">
+        <h1>Child Component</h1>
+        <button>Send Message to the Parent</button>
+
+        <template>
+            <p>Child Message</p>
+        </template>
+    
+        <style>
+            #smartID-A-A{
+                & {
+                    background-color: dodgerblue;
+                    color: white;
+                    border-radius: 10px;
+                    padding: 20px;
+                }
+
+                button{
+                    border-radius: 15px;
+                    padding: 5px 10px;
+                }
+            }
+        </style>
+    
+        <script type="module">
+            (() => {
+    
+                const componente = document.querySelector('#smartID-A-A')
+                const template = document.querySelector('#smartID-A-A > template')
+                const button = document.querySelector('#smartID-A-A > button')
+
+                const copy = template.content.cloneNode(true)
+
+                button.addEventListener('click', () => {
+                    smart.emit(componente, copy)
+                })
+    
+            })()
+        </script>
+    </div>
+
+    <style>
+        #smartID-A{
+            & {
+                background-color: darkorchid;
+                color: white;
+                border-radius: 10px;
+                padding: 20px;
+            }
+
+            p{
+                background-color: gray;
+                width: fit-content;
+                border-radius: 10px;
+                padding: 10px;
+                font-weight: bold;
+            }
+        }
+    </style>
+
+    <script type="module">
+        (() => {
+
+            const component = document.querySelector('#smartID-A')
+
+            smart.listenDescendant(component, (data) => {
+                component.insertBefore(data, component.querySelector('div'))
+            })
+
+        })()
+    </script>
+</div>
